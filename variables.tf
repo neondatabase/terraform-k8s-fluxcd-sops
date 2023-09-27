@@ -15,17 +15,18 @@ variable "controller_ssh_private_key" {
   sensitive   = true
 }
 
-variable "controller_ssh_known_hosts" {
-  description = "SSH known hosts for flux controller"
-  type        = string
-}
-
 variable "irsa_role_arn" {
   description = "Arn of IRSA role that is mapped to kustomize-controller service account in flux-system namespace"
   type        = string
 }
 
 # optional
+variable "controller_ssh_known_hosts" {
+  description = "SSH known hosts for flux controller. Defaults to github.com ECDSA key."
+  type        = string
+  default     = "github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg="
+}
+
 variable "namespace" {
   description = "Kubernetes namespace to deploy fluxcd to"
   type        = string
