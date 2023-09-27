@@ -47,6 +47,6 @@ resource "flux_bootstrap_git" "this" {
   path                    = var.path
   watch_all_namespaces    = var.watch_all_namespaces
   kustomization_override  = templatefile("${path.module}/kustomization.yaml.tpl", { irsa_role_arn : var.irsa_role_arn })
-  version                 = var.version
+  version                 = var.fluxcd_version
   depends_on              = [kubernetes_secret.flux_system_secret]
 }
