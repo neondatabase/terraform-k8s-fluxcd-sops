@@ -7,7 +7,7 @@ a read-only access to the repository.
 
 ```hcl
 module "fluxcd" {
-  source                     = "github.com/lassizci/terraform-eks-fluxcd-sops?ref=v0.9"
+  source                     = "github.com/lassizci/terraform-eks-fluxcd-sops?ref=v0.10"
   path                       = "./clusters/dev"
   controller_ssh_public_key  = file("./deploy-key.pub")
   controller_ssh_private_key = file("./deploy-key.priv")
