@@ -24,6 +24,8 @@ resource "kubernetes_secret" "flux_system_secret" {
     "identity.pub" = var.controller_ssh_public_key
     known_hosts    = var.controller_ssh_known_hosts
   }
+
+  depends_on = [kubernetes_namespace.flux_system_ns]
 }
 
 resource "kubernetes_config_map" "flux_cluster_variables" {
@@ -35,6 +37,8 @@ resource "kubernetes_config_map" "flux_cluster_variables" {
     annotations = var.annotations
   }
   data = var.cluster_variables
+
+  depends_on = [kubernetes_namespace.flux_system_ns]
 }
 
 ################################################################################
