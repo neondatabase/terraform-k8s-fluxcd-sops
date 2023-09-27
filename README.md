@@ -31,7 +31,7 @@ module "fluxcd" {
 | <a name="input_cluster_variables"></a> [cluster\_variables](#input\_cluster\_variables) | Key-value pairs to create 'flux-cluster-variables' ConfigMap for flux/Kustomization postBuild use | `map(string)` | `{}` | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | Kubernetes namespace to deploy fluxcd to | `string` | `"flux-system"` | no |
 | <a name="input_version"></a> [version](#input\_version) | Flux version to use | `string` | `"v2.1.1"` | no |
-| <a name="input_watch_all_namespaces"></a> [watch\_all\_namespaces](#input\_watch\_all\_namespaces) | Whether flux controller should watch all namespaces ifor custom resources or not | `bool` | `true` | no |
+| <a name="input_watch_all_namespaces"></a> [watch\_all\_namespaces](#input\_watch\_all\_namespaces) | Whether flux controller should watch all namespaces for custom resources or not | `bool` | `true` | no |
 
 * * *
 <details>

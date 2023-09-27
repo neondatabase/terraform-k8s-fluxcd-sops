@@ -45,7 +45,7 @@ variable "cluster_variables" {
 }
 
 variable "watch_all_namespaces" {
-  description = "Whether flux controller should watch all namespaces ifor custom resources or not"
+  description = "Whether flux controller should watch all namespaces for custom resources or not"
   type        = bool
   default     = true
 }
