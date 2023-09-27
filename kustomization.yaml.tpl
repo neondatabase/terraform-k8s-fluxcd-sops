@@ -10,7 +10,7 @@ patches:
     metadata:
       name: kustomize-controller
       annotations:
-        eks.amazonaws.com/role-arn: ${var.irsa_role_arn}
+        eks.amazonaws.com/role-arn: ${irsa_role_arn}
   target:
     kind: ServiceAccount
     name: kustomize-controller
