@@ -27,8 +27,7 @@ resource "kubernetes_secret" "flux_system_secret" {
 }
 
 resource "kubernetes_config_map" "flux_cluster_variables" {
-  count    = length(var.cluster_variables) > 0 ? 1 : 0
-  for_each = var.cluster_variables
+  count = length(var.cluster_variables) > 0 ? 1 : 0
 
   metadata {
     name        = "flux-cluster-variables"
