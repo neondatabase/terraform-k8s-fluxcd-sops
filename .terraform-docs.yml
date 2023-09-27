@@ -1,0 +1,16 @@
+settings:
+  hide-empty: true
+sort:
+  enabled: true
+  by: required
+
+content: |-
+  {{ .Header }}
+  {{ .Inputs }}
+  {{ .Outputs }}
+  * * *
+  <details>
+  <summary>Detailed information</summary>
+  {{ .Resources }}
+  {{ .Modules }}
+  </details>
