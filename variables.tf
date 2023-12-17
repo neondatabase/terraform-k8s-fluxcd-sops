@@ -40,7 +40,7 @@ variable "annotations" {
 }
 
 variable "cluster_variables" {
-  description = "Key-value pairs to create 'flux-cluster-variables' ConfigMap for flux/Kustomization postBuild use"
+  description = "Key-value pairs to create 'terraform-flux-cluster-variables' ConfigMap for flux/Kustomization postBuild use"
   type        = map(string)
   default     = {}
 }

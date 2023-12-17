@@ -32,7 +32,7 @@ resource "kubernetes_config_map" "flux_cluster_variables" {
   count = length(var.cluster_variables) > 0 ? 1 : 0
 
   metadata {
-    name        = "flux-cluster-variables"
+    name        = "terraform-flux-cluster-variables"
     namespace   = var.namespace
     annotations = var.annotations
   }
