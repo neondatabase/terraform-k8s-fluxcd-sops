@@ -53,4 +53,8 @@ resource "flux_bootstrap_git" "this" {
   kustomization_override  = templatefile("${path.module}/kustomization.yaml.tpl", { irsa_role_arn = var.irsa_role_arn })
   version                 = var.fluxcd_version
   depends_on              = [kubernetes_secret.flux_system_secret]
+
+  lifecycle {
+    ignore_changes = all
+  }
 }
