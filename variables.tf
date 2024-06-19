@@ -15,12 +15,22 @@ variable "controller_ssh_private_key" {
   sensitive   = true
 }
 
-variable "irsa_role_arn" {
-  description = "Arn of IRSA role that is mapped to kustomize-controller service account in flux-system namespace"
-  type        = string
+# optional
+# For features such as workload/pod identity, adding specific
+# labels/annotations to service accounts is necessary, but those differ across
+# cloud providers.
+variable "service_account_annotations" {
+  description = "Annotations to add to the kustomize-controller service account"
+  type        = map(string)
+  default     = {}
 }
 
-# optional
+variable "service_account_labels" {
+  description = "Annotations to add to the kustomize-controller service account"
+  type        = map(string)
+  default     = {}
+}
+
 variable "controller_ssh_known_hosts" {
   description = "SSH known hosts for flux controller. Defaults to github.com ECDSA key."
   type        = string

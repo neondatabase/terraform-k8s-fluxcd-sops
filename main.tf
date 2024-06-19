@@ -50,9 +50,12 @@ resource "flux_bootstrap_git" "this" {
   disable_secret_creation = true
   path                    = var.path
   watch_all_namespaces    = var.watch_all_namespaces
-  kustomization_override  = templatefile("${path.module}/kustomization.yaml.tpl", { irsa_role_arn = var.irsa_role_arn })
-  version                 = var.fluxcd_version
-  depends_on              = [kubernetes_secret.flux_system_secret]
+  kustomization_override = templatefile("${path.module}/kustomization.yaml.tpl", {
+    service_account_annotations = var.service_account_annotations
+    service_account_labels      = var.service_account_labels
+  })
+  version    = var.fluxcd_version
+  depends_on = [kubernetes_secret.flux_system_secret]
 
   lifecycle {
     ignore_changes = all
