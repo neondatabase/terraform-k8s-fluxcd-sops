@@ -18,7 +18,7 @@ jobs:
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: 1.4.6
+          terraform_version: 1.6.6
 
       - name: Check terraform formatting
         run: terraform fmt -diff -check -recursive
@@ -45,3 +45,21 @@ jobs:
         output-file: README.md
         output-method: inject
         git-push: "true"
+
+  terraform-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.6.6
+
+      - name: Initialize Terraform
+        run: terraform init
+
+      - name: Run tests
+        run: terraform test
+
