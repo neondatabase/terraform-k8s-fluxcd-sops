@@ -19,6 +19,9 @@ variables {
   service_account_labels = {
     "foo" = "bar"
   }
+  pod_labels = {
+    "some.cloud.provider/identity" = "true"
+  }
 }
 
 run "validate" {
