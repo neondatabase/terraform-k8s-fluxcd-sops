@@ -31,6 +31,12 @@ variable "service_account_labels" {
   default     = {}
 }
 
+variable "pod_labels" {
+  description = "Labels to add to the kustomize-controller pods"
+  type        = map(string)
+  default     = {}
+}
+
 variable "controller_ssh_known_hosts" {
   description = "SSH known hosts for flux controller. Defaults to github.com ECDSA key."
   type        = string
@@ -41,12 +47,6 @@ variable "namespace" {
   description = "Kubernetes namespace to deploy fluxcd to"
   type        = string
   default     = "flux-system"
-}
-
-variable "annotations" {
-  description = "Annotations to add to created kubernetes resources"
-  type        = map(string)
-  default     = {}
 }
 
 variable "cluster_variables" {
