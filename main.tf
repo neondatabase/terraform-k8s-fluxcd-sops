@@ -3,8 +3,7 @@
 ################################################################################
 resource "kubernetes_namespace" "flux_system_ns" {
   metadata {
-    name        = var.namespace
-    annotations = var.annotations
+    name = var.namespace
   }
 
   lifecycle {
@@ -14,9 +13,8 @@ resource "kubernetes_namespace" "flux_system_ns" {
 
 resource "kubernetes_secret" "flux_system_secret" {
   metadata {
-    name        = "flux-system"
-    namespace   = var.namespace
-    annotations = var.annotations
+    name      = "flux-system"
+    namespace = var.namespace
   }
 
   data = {
@@ -32,9 +30,8 @@ resource "kubernetes_config_map" "flux_cluster_variables" {
   count = length(var.cluster_variables) > 0 ? 1 : 0
 
   metadata {
-    name        = "terraform-flux-cluster-variables"
-    namespace   = var.namespace
-    annotations = var.annotations
+    name      = "terraform-flux-cluster-variables"
+    namespace = var.namespace
   }
   data = var.cluster_variables
 
@@ -53,6 +50,7 @@ resource "flux_bootstrap_git" "this" {
   kustomization_override = templatefile("${path.module}/kustomization.yaml.tpl", {
     service_account_annotations = yamlencode(var.service_account_annotations)
     service_account_labels      = yamlencode(var.service_account_labels)
+    pod_labels                  = yamlencode(var.pod_labels)
   })
   version    = var.fluxcd_version
   depends_on = [kubernetes_secret.flux_system_secret]

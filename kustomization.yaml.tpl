@@ -16,6 +16,18 @@ patches:
     name: kustomize-controller
     labelSelector: app.kubernetes.io/part-of=flux
 - patch: |
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: kustomize-controller
+    spec:
+      template:
+        metadata:
+          labels: ${pod_labels}
+  target:
+    kind: Deployment
+    name: kustomize-controller
+- patch: |
     apiVersion: kustomize.toolkit.fluxcd.io/v1
     kind: Kustomization
     metadata:
