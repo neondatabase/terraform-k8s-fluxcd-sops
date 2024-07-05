@@ -27,7 +27,6 @@ resource "kubernetes_secret" "flux_system_secret" {
 }
 
 resource "kubernetes_config_map" "flux_cluster_variables" {
-  count = length(var.cluster_variables) > 0 ? 1 : 0
 
   metadata {
     name      = "terraform-flux-cluster-variables"
@@ -39,7 +38,6 @@ resource "kubernetes_config_map" "flux_cluster_variables" {
 }
 
 resource "kubernetes_secret" "flux_cluster_secrets" {
-  count = length(var.cluster_secrets) > 0 ? 1 : 0
 
   metadata {
     name      = "terraform-flux-cluster-secrets"
