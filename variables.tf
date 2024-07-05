@@ -55,6 +55,13 @@ variable "cluster_variables" {
   default     = {}
 }
 
+variable "cluster_secrets" {
+  description = "Key-value pairs to create 'terraform-flux-cluster-secrets' Secret for flux/Kustomization postBuild use"
+  type        = map(string)
+  sensitive   = true
+  default     = {}
+}
+
 variable "watch_all_namespaces" {
   description = "Whether flux controller should watch all namespaces for custom resources or not"
   type        = bool
