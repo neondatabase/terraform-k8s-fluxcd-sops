@@ -27,13 +27,23 @@ resource "kubernetes_secret" "flux_system_secret" {
 }
 
 resource "kubernetes_config_map" "flux_cluster_variables" {
-  count = length(var.cluster_variables) > 0 ? 1 : 0
 
   metadata {
     name      = "terraform-flux-cluster-variables"
     namespace = var.namespace
   }
   data = var.cluster_variables
+
+  depends_on = [kubernetes_namespace.flux_system_ns]
+}
+
+resource "kubernetes_secret" "flux_cluster_secrets" {
+
+  metadata {
+    name      = "terraform-flux-cluster-secrets"
+    namespace = var.namespace
+  }
+  data = var.cluster_secrets
 
   depends_on = [kubernetes_namespace.flux_system_ns]
 }

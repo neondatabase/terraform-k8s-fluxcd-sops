@@ -27,6 +27,7 @@ module "fluxcd" {
 | <a name="input_controller_ssh_private_key"></a> [controller\_ssh\_private\_key](#input\_controller\_ssh\_private\_key) | SSH private key for flux controller | `string` | n/a | yes |
 | <a name="input_controller_ssh_public_key"></a> [controller\_ssh\_public\_key](#input\_controller\_ssh\_public\_key) | SSH public key for flux controller | `string` | n/a | yes |
 | <a name="input_path"></a> [path](#input\_path) | Path relative to flux repository root where to look for manifests | `string` | n/a | yes |
+| <a name="input_cluster_secrets"></a> [cluster\_secrets](#input\_cluster\_secrets) | Key-value pairs to create 'terraform-flux-cluster-secrets' Secret for flux/Kustomization postBuild use | `map(string)` | `{}` | no |
 | <a name="input_cluster_variables"></a> [cluster\_variables](#input\_cluster\_variables) | Key-value pairs to create 'terraform-flux-cluster-variables' ConfigMap for flux/Kustomization postBuild use | `map(string)` | `{}` | no |
 | <a name="input_controller_ssh_known_hosts"></a> [controller\_ssh\_known\_hosts](#input\_controller\_ssh\_known\_hosts) | SSH known hosts for flux controller. Defaults to github.com ECDSA key. | `string` | `"github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg="` | no |
 | <a name="input_fluxcd_version"></a> [fluxcd\_version](#input\_fluxcd\_version) | Flux version to use | `string` | `"v2.1.1"` | no |
@@ -46,6 +47,7 @@ module "fluxcd" {
 | [flux_bootstrap_git.this](https://registry.terraform.io/providers/fluxcd/flux/latest/docs/resources/bootstrap_git) | resource |
 | [kubernetes_config_map.flux_cluster_variables](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map) | resource |
 | [kubernetes_namespace.flux_system_ns](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
+| [kubernetes_secret.flux_cluster_secrets](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
 | [kubernetes_secret.flux_system_secret](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
 
 </details>
