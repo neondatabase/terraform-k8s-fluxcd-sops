@@ -64,8 +64,4 @@ resource "flux_bootstrap_git" "this" {
   })
   version    = var.fluxcd_version
   depends_on = [kubernetes_secret.flux_system_secret]
-
-  lifecycle {
-    ignore_changes = all
-  }
 }
