@@ -55,6 +55,7 @@ resource "flux_bootstrap_git" "this" {
   ## Using read-only secret for flux controller, so need to disable the creation
   ## and create the secret beforehand
   disable_secret_creation = true
+  delete_git_manifests    = false
   path                    = var.path
   watch_all_namespaces    = var.watch_all_namespaces
   kustomization_override = templatefile("${path.module}/kustomization.yaml.tpl", {
