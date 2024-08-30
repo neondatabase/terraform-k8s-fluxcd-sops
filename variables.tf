@@ -71,5 +71,5 @@ variable "watch_all_namespaces" {
 variable "fluxcd_version" {
   description = "Flux version to use"
   type        = string
-  default     = "v2.1.1"
+  default     = "v2.3.0"
 }
