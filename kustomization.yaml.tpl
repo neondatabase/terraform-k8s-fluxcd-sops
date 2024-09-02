@@ -33,6 +33,7 @@ patches:
     metadata:
       name: flux-system
     spec:
+      prune: ${flux_system_prune}
       decryption:
         provider: sops
   target:

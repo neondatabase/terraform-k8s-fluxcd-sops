@@ -63,6 +63,7 @@ resource "flux_bootstrap_git" "this" {
     service_account_annotations = jsonencode(var.service_account_annotations)
     service_account_labels      = jsonencode(var.service_account_labels)
     pod_labels                  = jsonencode(var.pod_labels)
+    flux_system_prune           = jsonencode(var.flux_system_prune)
   })
   version    = var.fluxcd_version
   depends_on = [kubernetes_secret.flux_system_secret]

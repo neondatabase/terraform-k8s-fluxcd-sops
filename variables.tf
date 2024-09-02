@@ -87,3 +87,9 @@ variable "keep_namespace" {
   type        = bool
   default     = true
 }
+
+variable "flux_system_prune" {
+  description = "Whether pruning should be set on flux-system Kustomization. Defaults to true"
+  type        = bool
+  default     = true
+}
