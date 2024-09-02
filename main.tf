@@ -51,17 +51,35 @@ resource "kubernetes_secret" "flux_cluster_secrets" {
 ################################################################################
 # FluxCD bootstrapping
 ################################################################################
+resource "terraform_data" "fluxcd_reprovision" {
+  input = var.path
+}
+
 resource "flux_bootstrap_git" "this" {
   ## Using read-only secret for flux controller, so need to disable the creation
   ## and create the secret beforehand
   disable_secret_creation = true
   path                    = var.path
+  delete_git_manifests    = var.delete_git_manifests
+  keep_namespace          = var.keep_namespace
   watch_all_namespaces    = var.watch_all_namespaces
   kustomization_override = templatefile("${path.module}/kustomization.yaml.tpl", {
     service_account_annotations = jsonencode(var.service_account_annotations)
     service_account_labels      = jsonencode(var.service_account_labels)
     pod_labels                  = jsonencode(var.pod_labels)
+    flux_system_prune           = jsonencode(var.flux_system_prune)
   })
   version    = var.fluxcd_version
   depends_on = [kubernetes_secret.flux_system_secret]
+
+  timeouts = {
+    create = "2m"
+    delete = "2m"
+    read   = "2m"
+    update = "2m"
+  }
+
+  lifecycle {
+    replace_triggered_by = [terraform_data.fluxcd_reprovision]
+  }
 }

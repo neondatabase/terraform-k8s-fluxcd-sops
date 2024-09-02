@@ -73,3 +73,23 @@ variable "fluxcd_version" {
   type        = string
   default     = "v2.3.0"
 }
+
+variable "delete_git_manifests" {
+  description = "Delete manifests from git repository. Defaults to true."
+  type        = bool
+  default     = true
+}
+
+// FluxCD defaults to false, but the module explicitly creates the namespace,
+// so flux_bootstrap_git should not be removing it.
+variable "keep_namespace" {
+  description = "Keep the namespace after uninstalling Flux components. Defaults to true"
+  type        = bool
+  default     = true
+}
+
+variable "flux_system_prune" {
+  description = "Whether pruning should be set on flux-system Kustomization. Defaults to true"
+  type        = bool
+  default     = true
+}

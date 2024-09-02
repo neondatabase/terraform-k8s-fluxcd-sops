@@ -30,7 +30,10 @@ module "fluxcd" {
 | <a name="input_cluster_secrets"></a> [cluster\_secrets](#input\_cluster\_secrets) | Key-value pairs to create 'terraform-flux-cluster-secrets' Secret for flux/Kustomization postBuild use | `map(string)` | `{}` | no |
 | <a name="input_cluster_variables"></a> [cluster\_variables](#input\_cluster\_variables) | Key-value pairs to create 'terraform-flux-cluster-variables' ConfigMap for flux/Kustomization postBuild use | `map(string)` | `{}` | no |
 | <a name="input_controller_ssh_known_hosts"></a> [controller\_ssh\_known\_hosts](#input\_controller\_ssh\_known\_hosts) | SSH known hosts for flux controller. Defaults to github.com ECDSA key. | `string` | `"github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg="` | no |
+| <a name="input_delete_git_manifests"></a> [delete\_git\_manifests](#input\_delete\_git\_manifests) | Delete manifests from git repository. Defaults to true. | `bool` | `true` | no |
+| <a name="input_flux_system_prune"></a> [flux\_system\_prune](#input\_flux\_system\_prune) | Whether pruning should be set on flux-system Kustomization. Defaults to true | `bool` | `true` | no |
 | <a name="input_fluxcd_version"></a> [fluxcd\_version](#input\_fluxcd\_version) | Flux version to use | `string` | `"v2.3.0"` | no |
+| <a name="input_keep_namespace"></a> [keep\_namespace](#input\_keep\_namespace) | Keep the namespace after uninstalling Flux components. Defaults to true | `bool` | `true` | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | Kubernetes namespace to deploy fluxcd to | `string` | `"flux-system"` | no |
 | <a name="input_pod_labels"></a> [pod\_labels](#input\_pod\_labels) | Labels to add to the kustomize-controller pods | `map(string)` | `{}` | no |
 | <a name="input_service_account_annotations"></a> [service\_account\_annotations](#input\_service\_account\_annotations) | Annotations to add to the kustomize-controller service account | `map(string)` | `{}` | no |
@@ -49,6 +52,7 @@ module "fluxcd" {
 | [kubernetes_namespace.flux_system_ns](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
 | [kubernetes_secret.flux_cluster_secrets](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
 | [kubernetes_secret.flux_system_secret](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
+| [terraform_data.fluxcd_reprovision](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
 
 </details>
 <!-- END_TF_DOCS -->
