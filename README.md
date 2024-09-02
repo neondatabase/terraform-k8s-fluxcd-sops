@@ -52,6 +52,7 @@ module "fluxcd" {
 | [kubernetes_namespace.flux_system_ns](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
 | [kubernetes_secret.flux_cluster_secrets](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
 | [kubernetes_secret.flux_system_secret](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
+| [terraform_data.fluxcd_reprovision](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
 
 </details>
 <!-- END_TF_DOCS -->
