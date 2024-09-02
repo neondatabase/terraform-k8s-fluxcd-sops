@@ -56,6 +56,8 @@ resource "flux_bootstrap_git" "this" {
   ## and create the secret beforehand
   disable_secret_creation = true
   path                    = var.path
+  delete_git_manifests    = var.delete_git_manifests
+  keep_namespace          = var.keep_namespace
   watch_all_namespaces    = var.watch_all_namespaces
   kustomization_override = templatefile("${path.module}/kustomization.yaml.tpl", {
     service_account_annotations = jsonencode(var.service_account_annotations)
