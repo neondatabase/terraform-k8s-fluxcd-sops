@@ -51,6 +51,10 @@ resource "kubernetes_secret" "flux_cluster_secrets" {
 ################################################################################
 # FluxCD bootstrapping
 ################################################################################
+resource "terraform_data" "fluxcd_reprovision" {
+  input = var.path
+}
+
 resource "flux_bootstrap_git" "this" {
   ## Using read-only secret for flux controller, so need to disable the creation
   ## and create the secret beforehand
@@ -67,4 +71,8 @@ resource "flux_bootstrap_git" "this" {
   })
   version    = var.fluxcd_version
   depends_on = [kubernetes_secret.flux_system_secret]
+
+  lifecycle {
+    replace_triggered_by = [terraform_data.fluxcd_reprovision]
+  }
 }
