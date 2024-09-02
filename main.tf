@@ -72,6 +72,13 @@ resource "flux_bootstrap_git" "this" {
   version    = var.fluxcd_version
   depends_on = [kubernetes_secret.flux_system_secret]
 
+  timeouts = {
+    create = "2m"
+    delete = "2m"
+    read   = "2m"
+    update = "2m"
+  }
+
   lifecycle {
     replace_triggered_by = [terraform_data.fluxcd_reprovision]
   }
