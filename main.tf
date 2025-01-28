@@ -64,10 +64,11 @@ resource "flux_bootstrap_git" "this" {
   keep_namespace          = var.keep_namespace
   watch_all_namespaces    = var.watch_all_namespaces
   kustomization_override = templatefile("${path.module}/kustomization.yaml.tpl", {
-    service_account_annotations = jsonencode(var.service_account_annotations)
-    service_account_labels      = jsonencode(var.service_account_labels)
-    pod_labels                  = jsonencode(var.pod_labels)
-    flux_system_prune           = jsonencode(var.flux_system_prune)
+    service_account_annotations        = jsonencode(var.service_account_annotations)
+    service_account_labels             = jsonencode(var.service_account_labels)
+    pod_labels                         = jsonencode(var.pod_labels)
+    flux_system_prune                  = jsonencode(var.flux_system_prune)
+    kustomize_controller_feature_gates = join(",", [for key, value in var.kustomize_controller_feature_gates : "${key}=${value}"])
   })
   version    = var.fluxcd_version
   depends_on = [kubernetes_secret.flux_system_secret]

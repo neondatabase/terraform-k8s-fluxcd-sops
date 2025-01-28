@@ -28,6 +28,13 @@ patches:
     kind: Deployment
     name: kustomize-controller
 - patch: |
+    - op: add
+      path: /spec/template/spec/containers/0/args/-
+      value: --feature-gates=${kustomize_controller_feature_gates}
+  target:
+    kind: Deployment
+    name: kustomize-controller
+- patch: |
     apiVersion: kustomize.toolkit.fluxcd.io/v1
     kind: Kustomization
     metadata:

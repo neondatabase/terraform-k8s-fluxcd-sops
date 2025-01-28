@@ -43,6 +43,12 @@ variable "controller_ssh_known_hosts" {
   default     = "github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg="
 }
 
+variable "kustomize_controller_feature_gates" {
+  description = "Kustomize controller feature gates to enable/disable."
+  type        = map(bool)
+  default     = {}
+}
+
 variable "namespace" {
   description = "Kubernetes namespace to deploy fluxcd to"
   type        = string
@@ -80,8 +86,8 @@ variable "delete_git_manifests" {
   default     = true
 }
 
-// FluxCD defaults to false, but the module explicitly creates the namespace,
-// so flux_bootstrap_git should not be removing it.
+# FluxCD defaults to false, but the module explicitly creates the namespace,
+# so flux_bootstrap_git should not be removing it.
 variable "keep_namespace" {
   description = "Keep the namespace after uninstalling Flux components. Defaults to true"
   type        = bool
