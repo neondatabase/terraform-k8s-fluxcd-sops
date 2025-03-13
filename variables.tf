@@ -46,7 +46,9 @@ variable "controller_ssh_known_hosts" {
 variable "kustomize_controller_feature_gates" {
   description = "Kustomize controller feature gates to enable/disable."
   type        = map(bool)
-  default     = {}
+  default = {
+    StrictPostBuildSubstitutions = true
+  }
 }
 
 variable "namespace" {
