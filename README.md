@@ -48,11 +48,11 @@ module "fluxcd" {
 
 | Name | Type |
 |------|------|
-| [flux_bootstrap_git.this](https://registry.terraform.io/providers/fluxcd/flux/latest/docs/resources/bootstrap_git) | resource |
-| [kubernetes_config_map.flux_cluster_variables](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map) | resource |
-| [kubernetes_namespace.flux_system_ns](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
-| [kubernetes_secret.flux_cluster_secrets](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
-| [kubernetes_secret.flux_system_secret](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) | resource |
+| [flux_bootstrap_git.this](https://registry.terraform.io/providers/fluxcd/flux/1.5.1/docs/resources/bootstrap_git) | resource |
+| [kubernetes_config_map.flux_cluster_variables](https://registry.terraform.io/providers/hashicorp/kubernetes/2.36.0/docs/resources/config_map) | resource |
+| [kubernetes_namespace.flux_system_ns](https://registry.terraform.io/providers/hashicorp/kubernetes/2.36.0/docs/resources/namespace) | resource |
+| [kubernetes_secret.flux_cluster_secrets](https://registry.terraform.io/providers/hashicorp/kubernetes/2.36.0/docs/resources/secret) | resource |
+| [kubernetes_secret.flux_system_secret](https://registry.terraform.io/providers/hashicorp/kubernetes/2.36.0/docs/resources/secret) | resource |
 | [terraform_data.fluxcd_reprovision](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
 
 </details>
