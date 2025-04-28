@@ -34,7 +34,7 @@ module "fluxcd" {
 | <a name="input_flux_system_prune"></a> [flux\_system\_prune](#input\_flux\_system\_prune) | Whether pruning should be set on flux-system Kustomization. Defaults to true | `bool` | `true` | no |
 | <a name="input_fluxcd_version"></a> [fluxcd\_version](#input\_fluxcd\_version) | Flux version to use | `string` | `"v2.3.0"` | no |
 | <a name="input_keep_namespace"></a> [keep\_namespace](#input\_keep\_namespace) | Keep the namespace after uninstalling Flux components. Defaults to true | `bool` | `true` | no |
-| <a name="input_kustomize_controller_feature_gates"></a> [kustomize\_controller\_feature\_gates](#input\_kustomize\_controller\_feature\_gates) | Kustomize controller feature gates to enable/disable. | `map(bool)` | <pre>{<br>  "StrictPostBuildSubstitutions": true<br>}</pre> | no |
+| <a name="input_kustomize_controller_feature_gates"></a> [kustomize\_controller\_feature\_gates](#input\_kustomize\_controller\_feature\_gates) | Kustomize controller feature gates to enable/disable. | `map(bool)` | <pre>{<br/>  "StrictPostBuildSubstitutions": true<br/>}</pre> | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | Kubernetes namespace to deploy fluxcd to | `string` | `"flux-system"` | no |
 | <a name="input_pod_labels"></a> [pod\_labels](#input\_pod\_labels) | Labels to add to the kustomize-controller pods | `map(string)` | `{}` | no |
 | <a name="input_service_account_annotations"></a> [service\_account\_annotations](#input\_service\_account\_annotations) | Annotations to add to the kustomize-controller service account | `map(string)` | `{}` | no |
