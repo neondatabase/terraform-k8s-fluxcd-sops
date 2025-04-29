@@ -32,7 +32,7 @@ module "fluxcd" {
 | <a name="input_controller_ssh_known_hosts"></a> [controller\_ssh\_known\_hosts](#input\_controller\_ssh\_known\_hosts) | SSH known hosts for flux controller. Defaults to github.com ECDSA key. | `string` | `"github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg="` | no |
 | <a name="input_delete_git_manifests"></a> [delete\_git\_manifests](#input\_delete\_git\_manifests) | Delete manifests from git repository. Defaults to true. | `bool` | `true` | no |
 | <a name="input_flux_system_prune"></a> [flux\_system\_prune](#input\_flux\_system\_prune) | Whether pruning should be set on flux-system Kustomization. Defaults to true | `bool` | `true` | no |
-| <a name="input_fluxcd_version"></a> [fluxcd\_version](#input\_fluxcd\_version) | Flux version to use | `string` | `"v2.3.0"` | no |
+| <a name="input_fluxcd_version"></a> [fluxcd\_version](#input\_fluxcd\_version) | Flux version to use | `string` | `"v2.5.1"` | no |
 | <a name="input_keep_namespace"></a> [keep\_namespace](#input\_keep\_namespace) | Keep the namespace after uninstalling Flux components. Defaults to true | `bool` | `true` | no |
 | <a name="input_kustomize_controller_feature_gates"></a> [kustomize\_controller\_feature\_gates](#input\_kustomize\_controller\_feature\_gates) | Kustomize controller feature gates to enable/disable. | `map(bool)` | <pre>{<br/>  "StrictPostBuildSubstitutions": true<br/>}</pre> | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | Kubernetes namespace to deploy fluxcd to | `string` | `"flux-system"` | no |

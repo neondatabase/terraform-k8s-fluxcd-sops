@@ -79,7 +79,7 @@ variable "watch_all_namespaces" {
 variable "fluxcd_version" {
   description = "Flux version to use"
   type        = string
-  default     = "v2.3.0"
+  default     = "v2.5.1"
 }
 
 variable "delete_git_manifests" {
